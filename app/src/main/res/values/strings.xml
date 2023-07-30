@@ -10,4 +10,16 @@ Hello 👋 welcome to the app that allows you to rent a car of your style and re
 Need to rent a car in style?
 </string>
     <string name="todo">image</string>
+    <string name="textview">Car Renter</string>
+    <string name="click_">click ⬇️
+</string>
+    <string name="Here">Here</string>
+    <string name="here">Here</string>
+    <string name="Her">Here</string>
+    <string name="check">TODO</string>
+    <string name="twitter">TextView</string>
+    <string name="facebook">TextView</string>
+    <string name="insta">TODO</string>
+    <string name="more">TextView</string>
+    <string name="tod">TODO</string>
 </resources>
