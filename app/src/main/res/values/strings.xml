@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">My Application</string>
+    <string name="car_renter">
+CAR RENTER
+</string>
+    <string name="hello_welcome">
+Hello 👋 welcome to the app that allows you to rent a car of your style and rent out any of your car at your convenience
+</string>
+    <string name="need_to_rent">
+Need to rent a car in style?
+</string>
+    <string name="todo">image</string>
 </resources>
