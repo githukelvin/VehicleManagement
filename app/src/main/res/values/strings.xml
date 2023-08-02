@@ -17,9 +17,19 @@ Need to rent a car in style?
     <string name="here">Here</string>
     <string name="Her">Here</string>
     <string name="check">TODO</string>
-    <string name="twitter">TextView</string>
-    <string name="facebook">TextView</string>
+    <string name="twitter">Twitter</string>
+    <string name="facebook">Facebook</string>
     <string name="insta">TODO</string>
-    <string name="more">TextView</string>
+    <string name="more">Want to rent out your car at your convenience?</string>
     <string name="tod">TODO</string>
+    <string name="logo">imagelogo</string>
+    <string name="mor">Need to rent a car in style?</string>
+    <string name="home">Great to see you rider : )</string>
+    <string name="textmore">Rent and Ride your dream car in style🚙</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="light">Light</string>
+    <string name="dark">Dark</string>
+    <string name="darkmode">Dark</string>
+
 </resources>
