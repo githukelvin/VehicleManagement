@@ -3,230 +3,101 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
-
-    <Button
-        android:id="@+id/click_go"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/here"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.571"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/click_"
-        app:strokeColor="#1B1B1B"
-        tools:ignore="DuplicateSpeakableTextCheck" />
+    android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/click_2"
-        android:layout_width="49dp"
-        android:layout_height="17dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginBottom="256dp"
-        android:gravity="top"
-        android:text="@string/click_"
-        android:textAppearance="@style/click_"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:id="@+id/textView"
+        android:layout_width="238dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="32dp"
+        android:text="@string/loginText"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.182"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="TextSizeCheck"
-        tools:text='click ⬇️' />
-
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="280dp"
-        android:layout_height="188dp"
-        android:layout_marginStart="148dp"
-        android:layout_marginLeft="148dp"
-        android:layout_marginTop="71dp"
-        android:layout_marginEnd="135dp"
-        android:layout_marginRight="135dp"
-        android:layout_marginBottom="532dp"
-        android:contentDescription="@string/logo"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.69"
+        app:layout_constraintHorizontal_bias="0.445"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.616"
-        tools:ignore="ImageContrastCheck"
-        tools:srcCompat="@drawable/bmw_cx5_1" />
-
-    <TextView
-        android:id="@+id/car_renter"
-        android:layout_width="88dp"
-        android:layout_height="17dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginBottom="816dp"
-        android:gravity="top"
-        android:text="@string/car_renter"
-        android:textAppearance="@style/car_renter"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.049"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:ignore="TextSizeCheck,VisualLintBounds,VisualLintOverlap"
-        tools:text="Car Renter" />
-
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="4dp"
-        android:text="@string/textview"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="@string/car_renter" />
-
-    <TextView
-        android:id="@+id/click_"
-        android:layout_width="49dp"
-        android:layout_height="20dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginBottom="436dp"
-        android:gravity="top"
-        android:text="@string/click_"
-        android:textAppearance="@style/click_"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.245"
-        app:layout_constraintStart_toStartOf="parent"
         tools:ignore="TextSizeCheck" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/loginBtn"
+        android:layout_width="200dp"
+        android:layout_height="52dp"
+
+        android:layout_marginTop="296dp"
+        android:background="@color/blue_light"
+        android:text="@string/loginBtn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/editTextTextPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="196dp"
-        android:text="@string/Her"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="204dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/enterPassword"
+        android:inputType="textPassword"
+        android:minHeight="48dp"
+        android:textColorHint="#795548"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.6"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.519"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/enterEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="112dp"
+        android:ems="10"
+        android:hint="@string/enterEmail"
+        android:importantForAutofill="no"
+        android:inputType="textEmailAddress"
+        android:minHeight="48dp"
+        android:textColorHint="#795548"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.519"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="328dp"
-        android:text="@string/more"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="400dp"
+        android:text="@string/forgotPas"
+        android:textColor="#00796B"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.422"
+        app:layout_constraintHorizontal_bias="0.149"
         app:layout_constraintStart_toStartOf="parent"
-        tools:text="Want to rent out your car at your convenience?" />
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="28dp"
-        android:layout_marginRight="28dp"
-        android:layout_marginBottom="12dp"
-        android:contentDescription="@string/tod"
-        app:layout_constraintBottom_toTopOf="@+id/imageView3"
-        app:layout_constraintEnd_toStartOf="@+id/textView4"
-        app:srcCompat="@drawable/insta_2"
-        tools:ignore="ContentDescription" />
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="24dp"
-        android:layout_marginRight="24dp"
-        android:contentDescription="@string/check"
-        app:layout_constraintEnd_toStartOf="@+id/textView5"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
-        app:srcCompat="@drawable/facebook_2" />
-
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
-        android:contentDescription="@string/insta"
-        app:layout_constraintEnd_toStartOf="@+id/textView6"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3"
-        app:srcCompat="@drawable/twitter_2" />
-
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="264dp"
-        android:layout_marginRight="264dp"
-        android:layout_marginBottom="24dp"
-        android:text="@string/insta"
-        app:layout_constraintBottom_toTopOf="@+id/textView5"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:text="Instagram" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/textView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="260dp"
-        android:layout_marginRight="260dp"
-        android:layout_marginBottom="20dp"
-        android:text="@string/facebook"
-        app:layout_constraintBottom_toTopOf="@+id/textView6"
+        android:layout_width="170dp"
+        android:layout_height="17dp"
+        android:layout_marginTop="400dp"
+        android:text="@string/alreadyHave"
+        android:textColor="@color/purple_500"
         app:layout_constraintEnd_toEndOf="parent"
-        tools:text="Facebook" />
-
-    <TextView
-        android:id="@+id/textView6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="260dp"
-        android:layout_marginRight="260dp"
-        android:layout_marginBottom="16dp"
-        android:text="@string/twitter"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:text="Twitter" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="257dp"
-        android:layout_height="30dp"
-        android:layout_marginBottom="468dp"
-        android:text="@string/mor"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.428"
+        app:layout_constraintHorizontal_bias="0.825"
         app:layout_constraintStart_toStartOf="parent"
-        tools:text="Need to rent a car in style?" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TextSizeCheck" />
 
-    <ToggleButton
-        android:id="@+id/darkmode"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="57dp"
-        android:layout_marginRight="57dp"
-        android:layout_marginBottom="667dp"
-        android:text="@string/darkmode"
-        android:textOff="@string/dark"
-        android:textOn="@string/light"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <Button
+        android:id="@+id/registerBtn"
+        android:layout_width="218dp"
+        android:layout_height="65dp"
+        android:layout_marginTop="452dp"
+        android:background="@color/blue_dark"
+        android:text="@string/regiterBtn"
+        android:textColor="#ffffff"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.45"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

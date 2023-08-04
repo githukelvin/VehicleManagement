@@ -31,5 +31,21 @@ Need to rent a car in style?
     <string name="light">Light</string>
     <string name="dark">Dark</string>
     <string name="darkmode">Dark</string>
+    <string name="loginBtn">Login</string>
+    <string name="loginText">Welcome to Login</string>
+    <string name="enterEmail">Enter Email</string>
+    <string name="enterPassword">Enter Password</string>
+    <string name="forgotPas">Forgot Password ?</string>
+    <string name="alreadyHave">Don\'t an have an account?</string>
+    <string name="regiterBtn">Register</string>
+    <string name="registertext">Create An Account with Us</string>
+    <string name="phone">Enter Phone Number</string>
+    <string name="username">Enter Username</string>
+    <string name="enterFullName">Enter FullName</string>
+    <string name="haveAnaccount">Have account ?</string>
+    <string name="registerBtn">Register</string>
+    <string name="loginbtn">Login Here</string>
+    <string name="enterusername">Enter Username</string>
+    <string name="enternames">Enter Fullname</string>
 
 </resources>
