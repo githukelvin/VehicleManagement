@@ -9,7 +9,7 @@ android {
 
     defaultConfig {
         applicationId "com.example.myapplication"
-        minSdkVersion 19
+        minSdkVersion 21
         targetSdk 34
         versionCode 1
         versionName "1.0"
@@ -38,10 +38,23 @@ dependencies {
     implementation 'com.google.android.gms:play-services-auth:20.6.0'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
-    implementation 'com.github.TutorialsAndroid:GButton:v1.0.19'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
     implementation(platform("com.google.firebase:firebase-bom:32.2.2"))
+
+    // When using the BoM, you don't specify versions in Firebase library dependencies
+
+    // Add the dependency for the Firebase SDK for Google Analytics
     implementation("com.google.firebase:firebase-analytics")
+
+    // TODO: Add the dependencies for any other Firebase products you want to use
+    // See https://firebase.google.com/docs/android/setup#available-libraries
+    // For example, add the dependencies for Firebase Authentication and Cloud Firestore
     implementation("com.google.firebase:firebase-auth")
     implementation("com.google.firebase:firebase-firestore")
+    implementation 'com.github.TutorialsAndroid:GButton:v1.0.19'
+    // Add the following dependency
+    implementation 'com.google.firebase:firebase-analytics:21.3.0' // Adjust version if needed
+
+// Apply the Google Services plugin
+    apply plugin: 'com.google.gms.google-services'
 }

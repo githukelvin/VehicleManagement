@@ -16,7 +16,6 @@ import androidx.activity.result.ActivityResult;
 import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -26,8 +25,9 @@ import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.common.api.ApiException;
-import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.FirebaseOptions;
 import com.google.firebase.auth.FirebaseAuth;
 
 
@@ -41,12 +41,15 @@ public class LoginActivity extends AppCompatActivity {
     GoogleSignInButton googleBtn;
     GoogleSignInOptions gOptions;
     GoogleSignInClient gClient;
-
+    boolean firebaseInitialized;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+//        if (!firebaseInitialized) {
+//            initializeFirebase();
+//        }
 
         loginEmail = findViewById(R.id.login_email);
         loginPassword = findViewById(R.id.login_password);
@@ -69,12 +72,7 @@ public class LoginActivity extends AppCompatActivity {
                                 Toast.makeText(LoginActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(LoginActivity.this, MainActivity.class));
                                 finish();
-                            }).addOnFailureListener(new OnFailureListener() {
-                                @Override
-                                public void onFailure(@NonNull Exception e) {
-                                    Toast.makeText(LoginActivity.this, "Login Failed", Toast.LENGTH_SHORT).show();
-                                }
-                            });
+                            }).addOnFailureListener(e -> Toast.makeText(LoginActivity.this, "Login Failed", Toast.LENGTH_SHORT).show());
                 } else {
                     loginPassword.setError("Empty fields are not allowed");
                 }
@@ -87,46 +85,43 @@ public class LoginActivity extends AppCompatActivity {
 
         signupRedirectText.setOnClickListener(v -> startActivity(new Intent(LoginActivity.this, SignUpActivity.class)));
 
-        forgotPassword.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
-                View dialogView = getLayoutInflater().inflate(R.layout.dialog_forgot, null);
-                EditText emailBox = dialogView.findViewById(R.id.emailBox);
+        forgotPassword.setOnClickListener(view -> {
+            AlertDialog.Builder builder = new AlertDialog.Builder(LoginActivity.this);
+            View dialogView = getLayoutInflater().inflate(R.layout.dialog_forgot, null);
+            EditText emailBox = dialogView.findViewById(R.id.emailBox);
 
-                builder.setView(dialogView);
-                AlertDialog dialog = builder.create();
+            builder.setView(dialogView);
+            AlertDialog dialog = builder.create();
 
-                dialogView.findViewById(R.id.btnReset).setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        String userEmail = emailBox.getText().toString();
+            dialogView.findViewById(R.id.btnReset).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    String userEmail = emailBox.getText().toString();
 
-                        if (TextUtils.isEmpty(userEmail) && !Patterns.EMAIL_ADDRESS.matcher(userEmail).matches()){
-                            Toast.makeText(LoginActivity.this, "Enter your registered email id", Toast.LENGTH_SHORT).show();
-                            return;
+                    if (TextUtils.isEmpty(userEmail) && !Patterns.EMAIL_ADDRESS.matcher(userEmail).matches()){
+                        Toast.makeText(LoginActivity.this, "Enter your registered email id", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                    auth.sendPasswordResetEmail(userEmail).addOnCompleteListener(task -> {
+                        if (task.isSuccessful()){
+                            Toast.makeText(LoginActivity.this, "Check your email", Toast.LENGTH_SHORT).show();
+                            dialog.dismiss();
+                        } else {
+                            Toast.makeText(LoginActivity.this, "Unable to send, failed", Toast.LENGTH_SHORT).show();
                         }
-                        auth.sendPasswordResetEmail(userEmail).addOnCompleteListener(task -> {
-                            if (task.isSuccessful()){
-                                Toast.makeText(LoginActivity.this, "Check your email", Toast.LENGTH_SHORT).show();
-                                dialog.dismiss();
-                            } else {
-                                Toast.makeText(LoginActivity.this, "Unable to send, failed", Toast.LENGTH_SHORT).show();
-                            }
-                        });
-                    }
-                });
-                dialogView.findViewById(R.id.btnCancel).setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        dialog.dismiss();
-                    }
-                });
-                if (dialog.getWindow() != null){
-                    dialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
+                    });
                 }
-                dialog.show();
+            });
+            dialogView.findViewById(R.id.btnCancel).setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    dialog.dismiss();
+                }
+            });
+            if (dialog.getWindow() != null){
+                dialog.getWindow().setBackgroundDrawable(new ColorDrawable(0));
             }
+            dialog.show();
         });
         //Inside onCreate
         gOptions = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
@@ -163,5 +158,16 @@ public class LoginActivity extends AppCompatActivity {
                 activityResultLauncher.launch(signInIntent);
             }
         });
+    }
+    private void initializeFirebase() {
+        FirebaseOptions options = new FirebaseOptions.Builder()
+                .setApiKey("AIzaSyBENd2V65479IQxXngZ-G45XxmW4yUDhig")
+                .setApplicationId("1:843309216359:android:7bc546019d1a1bb23b9ac2")
+                .setProjectId("vehicle-management-967c9")
+                .build();
+
+        FirebaseApp.initializeApp(this, options);
+        firebaseInitialized = true;
+
     }
 }

@@ -13,6 +13,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.FirebaseOptions;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -22,12 +24,15 @@ public class SignUpActivity extends AppCompatActivity {
     private EditText signupEmail, signupPassword;
     private Button signupButton;
     private TextView loginRedirectText;
+    boolean firebaseInitialized;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
-
+//        if (!firebaseInitialized) {
+//            initializeFirebase();
+//        }
         auth = FirebaseAuth.getInstance();
         signupEmail = findViewById(R.id.signup_email);
         signupPassword = findViewById(R.id.signup_password);
@@ -68,6 +73,17 @@ public class SignUpActivity extends AppCompatActivity {
                 startActivity(new Intent(SignUpActivity.this, LoginActivity.class));
             }
         });
+
+    }
+    private void initializeFirebase() {
+        FirebaseOptions options = new FirebaseOptions.Builder()
+                .setApiKey("AIzaSyBENd2V65479IQxXngZ-G45XxmW4yUDhig")
+                .setApplicationId("1:843309216359:android:7bc546019d1a1bb23b9ac2")
+                .setProjectId("vehicle-management-967c9")
+                .build();
+
+        FirebaseApp.initializeApp(this, options);
+        firebaseInitialized = true;
 
     }
 }
