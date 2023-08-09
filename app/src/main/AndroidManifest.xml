@@ -21,12 +21,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <!-- Declare your RegisterPage activity here -->
         <activity
-            android:name=".RegisterPage"
+            android:name=".SignUpActivity"
             android:label="Register Page">
             <!-- You can specify additional activity properties here if needed -->
         </activity>
+
     </application>
 
 </manifest>
