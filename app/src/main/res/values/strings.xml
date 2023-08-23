@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">My Application</string>
+    <string name="app_name">WeRent Carsl</string>
     <string name="car_renter">
 CAR RENTER
 </string>
@@ -61,5 +61,12 @@ Need to rent a car in style?
     <string name="sign_in_with_google">Sign in with Google</string>
     <string name="forgot_passwordm">Forgot Password?</string>
     <string name="passwords">Password</string>
+    <string name="model">Car Model?</string>
+    <string name="noPlate">Number Plate?</string>
+    <string name="price">Enter Rate to Hire in KSHS?</string>
+    <string name="location">Enter Your Location?</string>
+    <string name="carType">What type is your Car?</string>
+    <string name="addcar">Add a Car</string>
+    <string name="usernamec">Enter UserName</string>
 
 </resources>

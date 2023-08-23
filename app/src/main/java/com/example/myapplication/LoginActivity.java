@@ -51,7 +51,7 @@ public class LoginActivity extends AppCompatActivity {
 //            initializeFirebase();
 //        }
 
-        loginEmail = findViewById(R.id.login_email);
+        loginEmail = findViewById(R.id.carModel);
         loginPassword = findViewById(R.id.login_password);
         loginButton = findViewById(R.id.login_button);
         signupRedirectText = findViewById(R.id.signUpRedirectText);
