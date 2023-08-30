@@ -1,4 +1,5 @@
 package com.example.myapplication;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,9 +15,6 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-
-import java.util.HashMap;
-import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -64,16 +62,10 @@ public class MainActivity extends AppCompatActivity {
 
             if(!cartype.isEmpty() && !loc.isEmpty() && !Rate.isEmpty() && !Plate.isEmpty() && !Model.isEmpty()) {
                 // Get a reference to the "Cars" node in the database
+                Car carInfo = new Car(cartype,loc,Rate,Plate,Model);
                 FirebaseDatabase db = FirebaseDatabase.getInstance();
                 reference = db.getReference("Cars");
 
-                // Create a map to hold the car information
-                Map<String, Object> carInfo = new HashMap<>();
-                carInfo.put("cartype", cartype);
-                carInfo.put("location", loc);
-                carInfo.put("rate", Rate);
-                carInfo.put("plate", Plate);
-                carInfo.put("model", Model);
 
                 reference.child(Username).setValue(carInfo).addOnCompleteListener(task -> {
                     if (task.isSuccessful()) {
